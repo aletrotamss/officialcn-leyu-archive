@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 轻量导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafbfc;
+            color: #1d2b3a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- 顶部导航 --- */
+        .nav-bar {
+            padding: 28px 0 12px;
+            border-bottom: 1px solid #e6edf2;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 0;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 0.02em;
+            color: #102a43;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: #3b4d5e;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0077b6;
+        }
+
+        /* --- hero --- */
+        .hero {
+            margin-bottom: 56px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            color: #0b1f2e;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #2f4052;
+            max-width: 600px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #e0edf5;
+            color: #1a4965;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* --- 三个场景模块（卡片式） --- */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 22px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 20, 40, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 20, 40, 0.07);
+        }
+
+        .scene-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .scene-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #102a43;
+        }
+
+        .scene-card p {
+            font-size: 0.92rem;
+            color: #2f4052;
+            line-height: 1.6;
+        }
+
+        /* --- 常见说明 / FAQ 摘要 --- */
+        .faq-section {
+            margin-bottom: 64px;
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            color: #0b1f2e;
+            position: relative;
+        }
+
+        .faq-section h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #86bbd8;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e6edf2;
+            padding: 16px 0 12px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: #1d2b3a;
+            margin-bottom: 4px;
+        }
+
+        .faq-answer {
+            color: #2f4052;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-answer a {
+            color: #0077b6;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        .faq-answer a:hover {
+            color: #023e8a;
+        }
+
+        /* --- 底部 --- */
+        .footer {
+            padding: 32px 0 48px;
+            border-top: 1px solid #e6edf2;
+            font-size: 0.88rem;
+            color: #4f6479;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .footer a {
+            color: #3b5f7a;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 响应式 --- */
+        @media (max-width: 640px) {
+            .page {
+                padding: 0 18px;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 40px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .scene-card {
+                padding: 24px 18px;
+            }
+
+            .faq-section h2 {
+                font-size: 1.35rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 860px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 顶部导航 -->
+        <nav class="nav-bar">
+            <span class="nav-logo">开云·轻识</span>
+            <div class="nav-links">
+                <a href="#intro">概览</a>
+                <a href="#scenes">场景</a>
+                <a href="#faq">说明</a>
+            </div>
+        </nav>
+
+        <!-- hero / 核心介绍 -->
+        <section class="hero" id="intro">
+            <span class="tagline">轻量 · 清晰 · 即刻理解</span>
+            <h1>用最直接的方式<br>认识 <a href="https://openkaicloud.com" style="color: #0b1f2e; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #86bbd8; font-weight: 600;">开云</a></h1>
+            <p>如果你第一次访问这个网站，最想知道的无非是：它解决什么问题？我用不用得上？<br>
+            开云提供了一套偏向实际部署与数据协作的基础能力，没有多余的包装。下面的三个场景帮你快速对照自己的需求。</p>
+        </section>
+
+        <!-- 三个场景模块（卡片式） -->
+        <div class="scene-grid" id="scenes">
+            <div class="scene-card">
+                <span class="icon">☁️</span>
+                <h3>轻量部署与编排</h3>
+                <p>需要把服务快速跑在云上，又不想被复杂的配置拖慢进度？<br>
+                开云围绕常见的容器化工作流做了精简，从环境初始化到日志查看，每一步都有清晰的引导。</p>
+            </div>
+            <div class="scene-card">
+                <span class="icon">🔗</span>
+                <h3>数据与接口协作</h3>
+                <p>团队内部要共享 API 或数据集，但又不想搭建全套中间件？<br>
+                开云内置了轻量的数据桥接模块，让不同服务之间可以按需交换信息，减少重复开发。</p>
+            </div>
+            <div class="scene-card">
+                <span class="icon">📋</span>
+                <h3>日常运维与观察</h3>
+                <p>上线之后需要盯住资源使用和异常信号，但监控体系太重？<br>
+                开云提供了一组实用的仪表盘和告警模板，帮你快速定位资源瓶颈或异常波动。</p>
+            </div>
+        </div>
+
+        <!-- 常见说明（FAQ 摘要） -->
+        <section class="faq-section" id="faq">
+            <h2>常见说明</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">开云适合个人开发者还是团队？</div>
+                <div class="faq-answer">两者都适用。个人可以用它快速搭建实验环境，团队则能借助它的协作功能分配权限和共享资源。具体可以到 <a href="https://openkaicloud.com">开云</a> 了解定价与配置细节。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">是否需要提前掌握容器或云原生知识？</div>
+                <div class="faq-answer">不强制。开云的控制台提供可视化操作，大部分常见任务通过面板就能完成。当然，如果你了解 Docker 或 Kubernetes 的基本概念，使用起来会更顺手。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">数据和服务的迁移流程复杂吗？</div>
+                <div class="faq-answer">开云支持导入标准的容器镜像和配置文件，也提供导出功能。迁移前建议先在小范围测试，官方文档里有相应的步骤说明，整体流程是透明的。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">是否提供免费额度或试用期？</div>
+                <div class="faq-answer">是的，新用户注册后可以获得一定量的免费资源用于试用，具体额度以 <a href="https://openkaicloud.com">开云</a> 官网公布的最新政策为准。</div>
+            </div>
+        </section>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <span>© 2025 · 非官方介绍页</span>
+            <span>了解更多 → <a href="https://openkaicloud.com">开云</a></span>
+        </footer>
+    </div>
+</body>
+</html>
